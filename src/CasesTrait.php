@@ -13,7 +13,7 @@ trait CasesTrait
    /**
     * @return string[]
     */
-   static public function casesName(): array
+   public static function casesName(): array
    {
       return array_column(self::cases(), 'name');
    }
@@ -21,7 +21,7 @@ trait CasesTrait
    /**
     * @return string[]
     */
-   static public function casesLowerName(): array
+   public static function casesLowerName(): array
    {
       return array_map(fn ($k) => mb_strtolower($k, 'UTF-8'), self::casesName());
    }
@@ -29,7 +29,7 @@ trait CasesTrait
    /**
     * @return string[]
     */
-   static public function casesUpperName(): array
+   public static function casesUpperName(): array
    {
       return array_map(fn ($k) => mb_strtoupper($k, 'UTF-8'), self::casesName());
    }
@@ -38,7 +38,7 @@ trait CasesTrait
     * casesValue
     * @return array<int|string>|array{}
     */
-   static public function casesValue(): array
+   public static function casesValue(): array
    {
       return array_column(self::cases(), 'value');
    }
@@ -47,7 +47,7 @@ trait CasesTrait
     * NAME_CASE => VALUE_CASE
     * @return array<string,int|string>
     */
-   static public function casesAll(): array
+   public static function casesAll(): array
    {
       $t = self::cases();
       return array_combine(

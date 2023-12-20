@@ -2,12 +2,12 @@
 
 namespace Inilim\Trait\Enum;
 
-use function strtolower;
+use function mb_strtolower;
 
 trait GetLowerNameTrait
 {
     public function getLowerName(): string
     {
-        return strtolower($this->name);
+        return mb_strtolower($this->name, 'UTF-8');
     }
 }

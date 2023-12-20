@@ -2,12 +2,12 @@
 
 namespace Inilim\Trait\Enum;
 
-use function strtoupper;
+use function mb_strtoupper;
 
 trait GetUpperNameTrait
 {
     public function getUpperName(): string
     {
-        return strtoupper($this->name);
+        return mb_strtoupper($this->name, 'UTF-8');
     }
 }
