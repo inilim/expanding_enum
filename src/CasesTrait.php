@@ -7,6 +7,8 @@ use function mb_strtolower;
 use function mb_strtoupper;
 use function array_combine;
 use function array_column;
+use function array_fill;
+use function sizeof;
 
 trait CasesTrait
 {
@@ -45,14 +47,18 @@ trait CasesTrait
 
    /**
     * NAME_CASE => VALUE_CASE
-    * @return array<string,int|string>
+    * @return array<string,int|string|null>
     */
    public static function casesAll(): array
    {
       $t = self::cases();
+      $value = array_column($t, 'value');
+      if (is_null($t[0]->value ?? null)) {
+         $value = array_fill(0, sizeof($t), null);
+      }
       return array_combine(
          array_column($t, 'name'),
-         array_column($t, 'value')
+         $value
       );
    }
 }
