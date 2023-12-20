@@ -1,0 +1,23 @@
+{
+    "name": "inilim/expanding_enum",
+    "description": "expanding_enum",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Inilim\\Trait\\Enum\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "inilim"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "@stable"
+    }
+}
