@@ -37,7 +37,6 @@ trait CasesTrait
    }
 
    /**
-    * casesValue
     * @return array<int|string>|array{}
     */
    public static function casesValue(): array
@@ -46,12 +45,12 @@ trait CasesTrait
    }
 
    /**
-    * NAME_CASE => VALUE_CASE
+    * NAME => VALUE OR NULL
     * @return array<string,int|string|null>
     */
    public static function casesAll(): array
    {
-      $t = self::cases();
+      $t     = self::cases();
       $value = array_column($t, 'value');
       if (is_null($t[0]->value ?? null)) {
          $value = array_fill(0, sizeof($t), null);

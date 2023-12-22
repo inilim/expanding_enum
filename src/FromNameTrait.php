@@ -33,11 +33,11 @@ trait FromNameTrait
 
     protected static function getEnumByName(string $name, bool $case_insensitive = false): ?self
     {
-        $enums = self::cases();
+        $enums      = self::cases();
         $enum_names = array_column($enums, 'name');
         if ($case_insensitive) {
-            $fn = fn ($v) => mb_strtolower($v, 'UTF-8');
-            $name = $fn($name);
+            $fn         = fn ($v) => mb_strtolower($v, 'UTF-8');
+            $name       = $fn($name);
             $enum_names = array_map($fn, $enum_names);
         }
 

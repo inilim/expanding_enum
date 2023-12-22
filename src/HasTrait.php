@@ -7,8 +7,8 @@ use function is_null;
 use function defined;
 use function mb_strtolower;
 use function array_column;
-use function array_map;
-use function in_array;
+use function implode;
+use function str_contains;
 
 trait HasTrait
 {
@@ -22,10 +22,11 @@ trait HasTrait
    {
       if (!$case_insensitive) return defined('self::' . $name);
 
-      $fn = fn ($v) => mb_strtolower($v, 'UTF-8');
-      $name = $fn($name);
-      $names = array_column(self::cases(), 'name');
-      $names = array_map($fn, $names);
-      return in_array($name, $names, true);
+      $fn   = fn ($v) => mb_strtolower($v, 'UTF-8');
+      $name = '|' . $fn($name) . '|';
+      $list = array_column(self::cases(), 'name');
+      $list = '|' . implode('|', $list) . '|';
+      $list = $fn($list);
+      return str_contains($name, $list);
    }
 }

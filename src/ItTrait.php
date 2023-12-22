@@ -22,9 +22,9 @@ trait ItTrait
     {
         $name = $this->name;
         if ($case_insensitive) {
-            $fn = fn ($v) => mb_strtolower($v, 'UTF-8');
+            $fn   = fn ($v) => mb_strtolower($v, 'UTF-8');
             $name = $fn($name);
-            $it = $fn($it);
+            $it   = $fn($it);
         }
         if ($name === $it) return true;
         return false;
