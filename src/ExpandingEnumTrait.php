@@ -9,6 +9,7 @@ use Inilim\Trait\Enum\ItTrait;
 use Inilim\Trait\Enum\FromNameTrait;
 use Inilim\Trait\Enum\GetLowerNameTrait;
 use Inilim\Trait\Enum\GetUpperNameTrait;
+use Inilim\Trait\Enum\StringEnumTrait;
 
 trait ExpandingEnumTrait
 {
@@ -17,6 +18,7 @@ trait ExpandingEnumTrait
       ItTrait,
       HasTrait,
       FromNameTrait,
+      StringEnumTrait,
       GetLowerNameTrait,
       GetUpperNameTrait;
 }
