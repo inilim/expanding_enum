@@ -2,14 +2,6 @@
 
 namespace Inilim\Trait\Enum;
 
-use function array_map;
-use function mb_strtolower;
-use function mb_strtoupper;
-use function array_combine;
-use function array_column;
-use function array_fill;
-use function sizeof;
-
 trait CasesTrait
 {
    /**
@@ -17,7 +9,7 @@ trait CasesTrait
     */
    public static function casesName(): array
    {
-      return array_column(self::cases(), 'name');
+      return \array_column(self::cases(), 'name');
    }
 
    /**
@@ -25,7 +17,7 @@ trait CasesTrait
     */
    public static function casesLowerName(): array
    {
-      return array_map(fn ($k) => mb_strtolower($k, 'UTF-8'), self::casesName());
+      return \array_map(fn ($k) => \mb_strtolower($k, 'UTF-8'), self::casesName());
    }
 
    /**
@@ -33,7 +25,7 @@ trait CasesTrait
     */
    public static function casesUpperName(): array
    {
-      return array_map(fn ($k) => mb_strtoupper($k, 'UTF-8'), self::casesName());
+      return \array_map(fn ($k) => \mb_strtoupper($k, 'UTF-8'), self::casesName());
    }
 
    /**
@@ -41,7 +33,7 @@ trait CasesTrait
     */
    public static function casesValue(): array
    {
-      return array_column(self::cases(), 'value');
+      return \array_column(self::cases(), 'value');
    }
 
    /**
@@ -51,12 +43,12 @@ trait CasesTrait
    public static function casesAll(): array
    {
       $t     = self::cases();
-      $value = array_column($t, 'value');
-      if (is_null($t[0]->value ?? null)) {
-         $value = array_fill(0, sizeof($t), null);
+      $value = \array_column($t, 'value');
+      if (($t[0]->value ?? null) === null) {
+         $value = \array_fill(0, \sizeof($t), null);
       }
-      return array_combine(
-         array_column($t, 'name'),
+      return \array_combine(
+         \array_column($t, 'name'),
          $value
       );
    }

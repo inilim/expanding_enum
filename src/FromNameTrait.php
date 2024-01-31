@@ -4,13 +4,6 @@ namespace Inilim\Trait\Enum;
 
 use ValueError;
 
-use function is_null;
-use function array_column;
-use function mb_strtolower;
-use function array_map;
-use function array_search;
-use function is_bool;
-
 trait FromNameTrait
 {
     /**
@@ -21,7 +14,7 @@ trait FromNameTrait
     {
         $enum = self::getEnumByName($name, $case_insensitive);
 
-        if (!is_null($enum)) return $enum;
+        if ($enum !== null) return $enum;
 
         throw new ValueError("$name is not a valid backing value for enum " . self::class);
     }
@@ -34,15 +27,15 @@ trait FromNameTrait
     protected static function getEnumByName(string $name, bool $case_insensitive = false): ?self
     {
         $enums      = self::cases();
-        $enum_names = array_column($enums, 'name');
+        $enum_names = \array_column($enums, 'name');
         if ($case_insensitive) {
-            $fn         = fn ($v) => mb_strtolower($v, 'UTF-8');
+            $fn         = fn ($v) => \mb_strtolower($v, 'UTF-8');
             $name       = $fn($name);
-            $enum_names = array_map($fn, $enum_names);
+            $enum_names = \array_map($fn, $enum_names);
         }
 
-        $idx = array_search($name, $enum_names);
-        if (is_bool($idx)) return null;
+        $idx = \array_search($name, $enum_names);
+        if (\is_bool($idx)) return null;
         return $enums[$idx];
     }
 }
