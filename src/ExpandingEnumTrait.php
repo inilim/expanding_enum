@@ -3,6 +3,8 @@
 namespace Inilim\Trait\Enum;
 
 use Inilim\Trait\Enum\CasesTrait;
+use Inilim\Trait\Enum\CasesNameTrait;
+use Inilim\Trait\Enum\CasesValueTrait;
 use Inilim\Trait\Enum\GetValueTrait;
 use Inilim\Trait\Enum\HasTrait;
 use Inilim\Trait\Enum\ItTrait;
@@ -16,6 +18,8 @@ use Inilim\Trait\Enum\StringEnumTrait;
 trait ExpandingEnumTrait
 {
    use CasesTrait,
+      CasesValueTrait,
+      CasesNameTrait,
       GetValueTrait,
       ItTrait,
       HasTrait,
