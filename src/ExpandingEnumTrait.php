@@ -8,7 +8,9 @@ use Inilim\Trait\Enum\HasTrait;
 use Inilim\Trait\Enum\ItTrait;
 use Inilim\Trait\Enum\FromNameTrait;
 use Inilim\Trait\Enum\GetLowerNameTrait;
+use Inilim\Trait\Enum\GetLowerValueTrait;
 use Inilim\Trait\Enum\GetUpperNameTrait;
+use Inilim\Trait\Enum\GetUpperValueTrait;
 use Inilim\Trait\Enum\StringEnumTrait;
 
 trait ExpandingEnumTrait
@@ -20,5 +22,7 @@ trait ExpandingEnumTrait
       FromNameTrait,
       StringEnumTrait,
       GetLowerNameTrait,
+      GetLowerValueTrait,
+      GetUpperValueTrait,
       GetUpperNameTrait;
 }
