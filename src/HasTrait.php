@@ -19,6 +19,6 @@ trait HasTrait
       $list = \array_column(self::cases(), 'name');
       $list = '|' . \implode('|', $list) . '|';
       $list = $fn($list);
-      return \str_contains($name, $list);
+      return \str_contains($list, $name);
    }
 }
