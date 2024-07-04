@@ -14,10 +14,13 @@ use Inilim\Trait\Enum\GetLowerValueTrait;
 use Inilim\Trait\Enum\GetUpperNameTrait;
 use Inilim\Trait\Enum\GetUpperValueTrait;
 use Inilim\Trait\Enum\StringEnumTrait;
+use Inilim\Trait\Enum\GetNameTrait;
+use Inilim\Trait\Enum\ExistValueTrait;
 
 trait ExpandingEnumTrait
 {
    use CasesTrait,
+      ExistValueTrait,
       CasesValueTrait,
       CasesNameTrait,
       GetValueTrait,
@@ -25,6 +28,7 @@ trait ExpandingEnumTrait
       HasTrait,
       FromNameTrait,
       StringEnumTrait,
+      GetNameTrait,
       GetLowerNameTrait,
       GetLowerValueTrait,
       GetUpperValueTrait,
