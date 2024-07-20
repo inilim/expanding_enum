@@ -11,6 +11,6 @@ trait HasTrait
 
    static function hasName(string $name, bool $case_insensitive = false): bool
    {
-      return \_enum()->hasValue(self::class, $name, $case_insensitive);
+      return \_enum()->hasName(self::class, $name, $case_insensitive);
    }
 }
