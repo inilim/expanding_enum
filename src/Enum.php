@@ -4,12 +4,12 @@ namespace Inilim\ExpandingEnum;
 
 use Inilim\ExpandingEnum\EnumCase;
 
-readonly class Enum
+class Enum
 {
     /**
      * @var class-string<\UnitEnum|\BackedEnum>
      */
-    public string $enum;
+    public readonly string $enum;
 
     /**
      * @param class-string<\UnitEnum|\BackedEnum> $string_enum

@@ -4,10 +4,10 @@ namespace Inilim\ExpandingEnum;
 
 use Inilim\ExpandingEnum\Enum;
 
-readonly class EnumCase
+class EnumCase
 {
     function __construct(
-        public \UnitEnum $enum
+        public readonly \UnitEnum $enum
     ) {}
 
     function getEnum(): \UnitEnum
