@@ -9,7 +9,7 @@ trait ItTrait
      */
     function itValue(string|int $it, bool $case_insensitive = false): bool
     {
-        return \_enumItem()->valueEqual($this, $it, $case_insensitive);
+        return \_enumCase()->valueEqual($this, $it, $case_insensitive);
     }
 
     /**
@@ -17,6 +17,6 @@ trait ItTrait
      */
     function itName(string $it, bool $case_insensitive = false): bool
     {
-        return \_enumItem()->nameEqual($this, $it, $case_insensitive);
+        return \_enumCase()->nameEqual($this, $it, $case_insensitive);
     }
 }

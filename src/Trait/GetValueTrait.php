@@ -6,11 +6,11 @@ trait GetValueTrait
 {
    function getValue(): string|int|null
    {
-      return \_enumItem()->v($this);
+      return \_enumCase()->v($this);
    }
 
    function v(): string|int|null
    {
-      return \_enumItem()->v($this);
+      return \_enumCase()->v($this);
    }
 }

@@ -6,6 +6,6 @@ trait GetUpperNameTrait
 {
     function getUpperName(): string
     {
-        return \_enumItem()->getUpperName($this);
+        return \_enumCase()->getUpperName($this);
     }
 }

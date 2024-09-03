@@ -6,11 +6,11 @@ trait GetNameTrait
 {
     function getName(): string
     {
-        return \_enumItem()->n($this);
+        return \_enumCase()->n($this);
     }
 
     function n(): string
     {
-        return \_enumItem()->n($this);
+        return \_enumCase()->n($this);
     }
 }

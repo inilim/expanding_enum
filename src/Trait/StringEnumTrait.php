@@ -9,7 +9,7 @@ trait StringEnumTrait
      */
     function toString(): string
     {
-        return \_enumItem()->toString($this);
+        return \_enumCase()->toString($this);
     }
 
     /**
@@ -17,11 +17,11 @@ trait StringEnumTrait
      */
     function string(): string
     {
-        return \_enumItem()->toString($this);
+        return \_enumCase()->toString($this);
     }
 
     function className(): string
     {
-        return \_enumItem()->className($this);
+        return \_enumCase()->className($this);
     }
 }

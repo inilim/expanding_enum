@@ -3,6 +3,7 @@
 namespace Inilim\ExpandingEnum;
 
 use Inilim\ExpandingEnum\EnumAbstract;
+use Inilim\ExpandingEnum\EnumCase;
 
 class EnumUtil extends EnumAbstract
 {
@@ -56,15 +57,15 @@ class EnumUtil extends EnumAbstract
     }
 
     // ------------------------------------------------------------------
-    // value to item
+    // value to case obj
     // ------------------------------------------------------------------
 
     /**
      * @param class-string<\UnitEnum> $enum
      */
-    function fromValueToItem(string $enum, int|string $value, bool $case_insensitive = false): EnumItem
+    function fromValueToCaseObj(string $enum, int|string $value, bool $case_insensitive = false): EnumCase
     {
-        $result = $this->tryFromValueToItem($enum, $value, $case_insensitive);
+        $result = $this->tryFromValueToCaseObj($enum, $value, $case_insensitive);
         if ($result) {
             return $result;
         }
@@ -74,25 +75,25 @@ class EnumUtil extends EnumAbstract
     /**
      * @param class-string<\UnitEnum> $enum
      */
-    function tryFromValueToItem(string $enum, int|string $value, bool $case_insensitive = false): ?EnumItem
+    function tryFromValueToCaseObj(string $enum, int|string $value, bool $case_insensitive = false): ?EnumCase
     {
         $result = $this->tryFromValue($enum, $value, $case_insensitive);
         if ($result) {
-            return new EnumItem($result);
+            return new EnumCase($result);
         }
         return null;
     }
 
     // ------------------------------------------------------------------
-    // name to item
+    // name to case obj
     // ------------------------------------------------------------------
 
     /**
      * @param class-string<\UnitEnum> $enum
      */
-    function fromNameToItem(string $enum, string $name, bool $case_insensitive = false): EnumItem
+    function fromNameToCaseObj(string $enum, string $name, bool $case_insensitive = false): EnumCase
     {
-        $result = $this->tryFromNameToItem($enum, $name, $case_insensitive);
+        $result = $this->tryFromNameToCaseObj($enum, $name, $case_insensitive);
         if ($result) {
             return $result;
         }
@@ -102,11 +103,11 @@ class EnumUtil extends EnumAbstract
     /**
      * @param class-string<\UnitEnum> $enum
      */
-    function tryFromNameToItem(string $enum, string $name, bool $case_insensitive = false): ?EnumItem
+    function tryFromNameToCaseObj(string $enum, string $name, bool $case_insensitive = false): ?EnumCase
     {
         $result = $this->tryFromName($enum, $name, $case_insensitive);
         if ($result) {
-            return new EnumItem($result);
+            return new EnumCase($result);
         }
         return null;
     }

@@ -6,12 +6,12 @@ trait EqualTrait
 {
     function valueEqual(string|int $value, bool $case_insensitive = false): bool
     {
-        return \_enumItem()->valueEqual($this, $value, $case_insensitive);
+        return \_enumCase()->valueEqual($this, $value, $case_insensitive);
     }
 
     function nameEqual(string $name, bool $case_insensitive = false): bool
     {
-        return \_enumItem()->nameEqual($this, $name, $case_insensitive);
+        return \_enumCase()->nameEqual($this, $name, $case_insensitive);
     }
 
     /**
@@ -19,11 +19,11 @@ trait EqualTrait
      */
     function classEqual(string $enum): bool
     {
-        return \_enumItem()->classEqual($this, $enum);
+        return \_enumCase()->classEqual($this, $enum);
     }
 
     function enumEqual(\UnitEnum $enum): bool
     {
-        return \_enumItem()->enumEqual($this, $enum);
+        return \_enumCase()->enumEqual($this, $enum);
     }
 }

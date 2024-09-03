@@ -4,7 +4,7 @@ namespace Inilim\ExpandingEnum;
 
 use Inilim\ExpandingEnum\EnumAbstract;
 
-class EnumItemUtil extends EnumAbstract
+class EnumCaseUtil extends EnumAbstract
 {
     // ------------------------------------------------------------------
     // ExistsValueTrait

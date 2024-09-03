@@ -3,7 +3,7 @@
 namespace Inilim\ExpandingEnum\Trait;
 
 use Inilim\ExpandingEnum\Enum;
-use Inilim\ExpandingEnum\EnumItem;
+use Inilim\ExpandingEnum\EnumCase;
 
 trait EnumObjectTrait
 {
@@ -12,8 +12,8 @@ trait EnumObjectTrait
         return \_enum()->getEnumObj(self::class);
     }
 
-    function getEnumItemObj(): EnumItem
+    function getEnumCaseObj(): EnumCase
     {
-        return \_enum()->getEnumItemObj($this);
+        return \_enum()->getEnumCaseObj($this);
     }
 }

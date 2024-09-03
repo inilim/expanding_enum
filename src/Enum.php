@@ -2,7 +2,7 @@
 
 namespace Inilim\ExpandingEnum;
 
-use Inilim\ExpandingEnum\EnumItem;
+use Inilim\ExpandingEnum\EnumCase;
 
 readonly class Enum
 {
@@ -42,24 +42,24 @@ readonly class Enum
         return \_enum()->tryFromValue($this->enum, $value, $case_insensitive);
     }
 
-    function fromValueToItem(int|string $value, bool $case_insensitive = false): EnumItem
+    function fromValueToCaseObj(int|string $value, bool $case_insensitive = false): EnumCase
     {
-        return \_enum()->fromValueToItem($this->enum, $value, $case_insensitive);
+        return \_enum()->fromValueToCaseObj($this->enum, $value, $case_insensitive);
     }
 
-    function tryFromValueToItem(int|string $value, bool $case_insensitive = false): ?EnumItem
+    function tryFromValueToCaseObj(int|string $value, bool $case_insensitive = false): ?EnumCase
     {
-        return \_enum()->tryFromValueToItem($this->enum, $value, $case_insensitive);
+        return \_enum()->tryFromValueToCaseObj($this->enum, $value, $case_insensitive);
     }
 
-    function fromNameToItem(string $name, bool $case_insensitive = false): EnumItem
+    function fromNameToCaseObj(string $name, bool $case_insensitive = false): EnumCase
     {
-        return \_enum()->fromNameToItem($this->enum, $name, $case_insensitive);
+        return \_enum()->fromNameToCaseObj($this->enum, $name, $case_insensitive);
     }
 
-    function tryFromNameToItem(string $name, bool $case_insensitive = false): ?EnumItem
+    function tryFromNameToCaseObj(string $name, bool $case_insensitive = false): ?EnumCase
     {
-        return \_enum()->tryFromNameToItem($this->enum, $name, $case_insensitive);
+        return \_enum()->tryFromNameToCaseObj($this->enum, $name, $case_insensitive);
     }
 
     function count(): int

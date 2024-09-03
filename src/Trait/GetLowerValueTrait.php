@@ -6,6 +6,6 @@ trait GetLowerValueTrait
 {
     function getLowerValue(): null|string|int
     {
-        return \_enumItem()->getLowerValue($this);
+        return \_enumCase()->getLowerValue($this);
     }
 }

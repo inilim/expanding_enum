@@ -3,7 +3,7 @@
 namespace Inilim\ExpandingEnum;
 
 use Inilim\ExpandingEnum\Enum;
-use Inilim\ExpandingEnum\EnumItem;
+use Inilim\ExpandingEnum\EnumCase;
 
 abstract class EnumAbstract
 {
@@ -20,9 +20,9 @@ abstract class EnumAbstract
         return new Enum($enum::class);
     }
 
-    function getEnumItemObj(\UnitEnum $enum): EnumItem
+    function getEnumCaseObj(\UnitEnum $enum): EnumCase
     {
-        return new EnumItem($enum);
+        return new EnumCase($enum);
     }
 
     protected function lower(string $value): string

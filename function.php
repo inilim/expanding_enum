@@ -1,7 +1,7 @@
 <?php
 
 use Inilim\ExpandingEnum\EnumUtil;
-use Inilim\ExpandingEnum\EnumItemUtil;
+use Inilim\ExpandingEnum\EnumCaseUtil;
 
 if (!\function_exists('_enum')) {
     function _enum(): EnumUtil
@@ -11,10 +11,10 @@ if (!\function_exists('_enum')) {
     }
 }
 
-if (!\function_exists('_enumItem')) {
-    function _enumItem(): EnumItemUtil
+if (!\function_exists('_enumCase')) {
+    function _enumCase(): EnumCaseUtil
     {
-        static $o = new EnumItemUtil;
+        static $o = new EnumCaseUtil;
         return $o;
     }
 }

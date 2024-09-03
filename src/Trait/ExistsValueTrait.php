@@ -6,16 +6,16 @@ trait ExistsValueTrait
 {
     function existsValue(): bool
     {
-        return \_enumItem()->existsValue($this);
+        return \_enumCase()->existsValue($this);
     }
 
     function existsStrValue(): bool
     {
-        return \_enumItem()->existsStrValue($this);
+        return \_enumCase()->existsStrValue($this);
     }
 
     function existsIntValue(): bool
     {
-        return \_enumItem()->existsIntValue($this);
+        return \_enumCase()->existsIntValue($this);
     }
 }

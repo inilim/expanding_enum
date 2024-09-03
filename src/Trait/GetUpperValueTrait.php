@@ -6,6 +6,6 @@ trait GetUpperValueTrait
 {
     function getUpperValue(): null|string|int
     {
-        return \_enumItem()->getUpperValue($this);
+        return \_enumCase()->getUpperValue($this);
     }
 }
