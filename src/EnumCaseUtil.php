@@ -2,9 +2,9 @@
 
 namespace Inilim\ExpandingEnum;
 
-use Inilim\ExpandingEnum\EnumAbstract;
+use Inilim\ExpandingEnum\UtilAbstract;
 
-class EnumCaseUtil extends EnumAbstract
+class EnumCaseUtil extends UtilAbstract
 {
     // ------------------------------------------------------------------
     // ExistsValueTrait

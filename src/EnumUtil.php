@@ -2,17 +2,17 @@
 
 namespace Inilim\ExpandingEnum;
 
-use Inilim\ExpandingEnum\EnumAbstract;
+use Inilim\ExpandingEnum\UtilAbstract;
 use Inilim\ExpandingEnum\EnumCase;
 
-class EnumUtil extends EnumAbstract
+class EnumUtil extends UtilAbstract
 {
     /**
      * @param class-string $enum
      */
-    function isEnum(string $enum): bool
+    function isEnum(string $enum, bool $autoload = true): bool
     {
-        return \enum_exists($enum);
+        return \enum_exists($enum, $autoload);
     }
 
     /**
@@ -305,6 +305,10 @@ class EnumUtil extends EnumAbstract
             ? \in_array($this->lower($name), $this->casesLowerName($enum))
             : \defined($enum . '::' . $name);
     }
+
+    // ------------------------------------------------------------------
+    // 
+    // ------------------------------------------------------------------
 
     protected function getFirstValue(string $enum): null|string|int
     {

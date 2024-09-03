@@ -3,8 +3,9 @@
 namespace Inilim\ExpandingEnum;
 
 use Inilim\ExpandingEnum\Enum;
+use Inilim\ExpandingEnum\EnumAbstract;
 
-class EnumCase
+class EnumCase extends EnumAbstract
 {
     function __construct(
         public readonly \UnitEnum $enum
@@ -18,6 +19,14 @@ class EnumCase
     function e(): \UnitEnum
     {
         return $this->enum;
+    }
+
+    /**
+     * @return class-string<\UnitEnum>
+     */
+    function getEnumClass(): string
+    {
+        return $this->enum::class;
     }
 
     function getEnumObj(): Enum

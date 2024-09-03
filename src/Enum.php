@@ -3,8 +3,9 @@
 namespace Inilim\ExpandingEnum;
 
 use Inilim\ExpandingEnum\EnumCase;
+use Inilim\ExpandingEnum\EnumAbstract;
 
-class Enum
+class Enum extends EnumAbstract
 {
     /**
      * @var class-string<\UnitEnum|\BackedEnum>
@@ -12,16 +13,23 @@ class Enum
     public readonly string $enum;
 
     /**
-     * @param class-string<\UnitEnum|\BackedEnum> $string_enum
+     * @param class-string<\UnitEnum>|EnumAbstract|\UnitEnum $enum
      */
-    function __construct(
-        string $enum,
-    ) {
-        if (\_enum()->isEnum($enum)) {
-            $this->enum = $enum;
+    function __construct($enum)
+    {
+        if (\_enum()->acceptable($enum)) {
+            $this->enum = \_enum()->getClassFromAcceptable($enum);
         } else {
             throw new \RuntimeException('enum "' . $enum . '" not found');
         }
+    }
+
+    /**
+     * @return class-string<\UnitEnum>
+     */
+    function getEnumClass(): string
+    {
+        return $this->enum;
     }
 
     /**
