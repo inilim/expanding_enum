@@ -4,6 +4,7 @@ namespace Inilim;
 
 use Inilim\ExampleClassEnum;
 use Inilim\ExampleClassEnumCase;
+use Inilim\ExpandingEnum\Trait\EnumObjectTrait;
 use Inilim\ExpandingEnum\Trait\EnumCustomObjectTrait;
 
 enum ExampleEnum: string
