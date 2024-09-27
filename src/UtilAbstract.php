@@ -6,12 +6,17 @@ use Inilim\ExpandingEnum\Enum;
 use Inilim\ExpandingEnum\EnumCase;
 use Inilim\ExpandingEnum\EnumAbstract;
 
+/**
+ * @template TCase of object
+ * @template TClass of class-string
+ */
 abstract class UtilAbstract
 {
     protected const ENCODING = 'UTF-8';
 
     /**
-     * @param \UnitEnum|class-string<\UnitEnum> $enum
+     * @param TCase|TClass $enum
+     * @return Enum<TClass>
      */
     function getEnumObj(\UnitEnum|string $enum): Enum
     {
@@ -21,6 +26,10 @@ abstract class UtilAbstract
         return new Enum($enum::class);
     }
 
+    /**
+     * @param TCase $enum
+     * @return EnumCase<TCase>
+     */
     function getEnumCaseObj(\UnitEnum $enum): EnumCase
     {
         return new EnumCase($enum);
@@ -29,7 +38,7 @@ abstract class UtilAbstract
     /**
      * допустимое значение для перечисления
      * 
-     * @param class-string<\UnitEnum>|EnumAbstract|\UnitEnum $enum
+     * @param class-string<TCase>|EnumAbstract<TCase|TClass>|TCase $enum
      */
     function acceptable($enum): bool
     {
@@ -51,7 +60,7 @@ abstract class UtilAbstract
     /**
      * допустимое значение для значения перечисления
      * 
-     * @param EnumCase|\UnitEnum $enum
+     * @param EnumCase<TCase>|TCase $enum
      */
     function acceptableCase($enum): bool
     {
@@ -62,7 +71,7 @@ abstract class UtilAbstract
     }
 
     /**
-     * @param class-string<\UnitEnum>|EnumAbstract|\UnitEnum $enum
+     * @param class-string<TCase>|EnumAbstract<TCase|TClass>|TCase $enum
      */
     function getClassFromAcceptable($enum): string
     {
@@ -80,7 +89,7 @@ abstract class UtilAbstract
     }
 
     /**
-     * @param EnumCase|\UnitEnum $enum
+     * @param EnumCase<TCase>|TCase $enum
      */
     function getUnitFromAcceptableCase($enum): \UnitEnum
     {

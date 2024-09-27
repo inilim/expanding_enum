@@ -2,37 +2,34 @@
 
 namespace Inilim\ExpandingEnum\Trait;
 
-use Inilim\ExpandingEnum\Enum;
-use Inilim\ExpandingEnum\EnumCase;
-
 /**
  * @template TEnum of class-string
  * @template TEnumCase of object
  */
-trait EnumObjectTrait
+trait EnumCustomObjectTrait
 {
     /**
-     * @return Enum<TEnum>
+     * @return TEnum
      */
     static function getEnumObj()
     {
-        return \_enum()->getEnumObj(self::class);
+        return new (self::CLASS_ENUM)(self::class);
     }
 
     /**
-     * @return Enum<TEnum>
+     * @return TEnum
      */
     static function getCachedEnumObj()
     {
         static $o = null;
-        return $o ??= \_enum()->getEnumObj(self::class);
+        return $o ??= new (self::CLASS_ENUM)(self::class);
     }
 
     /**
-     * @return EnumCase<TEnumCase>
+     * @return TEnumCase
      */
     function getEnumCaseObj()
     {
-        return \_enum()->getEnumCaseObj($this);
+        return new (self::CLASS_ENUM_CASE)($this);
     }
 }

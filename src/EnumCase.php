@@ -5,31 +5,50 @@ namespace Inilim\ExpandingEnum;
 use Inilim\ExpandingEnum\Enum;
 use Inilim\ExpandingEnum\EnumAbstract;
 
+/**
+ * @template TCase of object
+ * @template TClass of class-string
+ */
 class EnumCase extends EnumAbstract
 {
+    /**
+     * @param TCase $enum
+     */
     function __construct(
+        /**
+         * @var TCase
+         */
         public readonly \UnitEnum $enum
     ) {}
 
-    function getEnum(): \UnitEnum
-    {
-        return $this->enum;
-    }
-
-    function e(): \UnitEnum
+    /**
+     * @return TCase
+     */
+    function getEnum()
     {
         return $this->enum;
     }
 
     /**
-     * @return class-string<\UnitEnum>
+     * @return TCase
+     */
+    function e()
+    {
+        return $this->enum;
+    }
+
+    /**
+     * @return class-string<TCase>
      */
     function getEnumClass(): string
     {
         return $this->enum::class;
     }
 
-    function getEnumObj(): Enum
+    /**
+     * @return Enum<TClass>
+     */
+    function getEnumObj()
     {
         return \_enumCase()->getEnumObj($this->enum);
     }

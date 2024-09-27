@@ -5,15 +5,19 @@ namespace Inilim\ExpandingEnum;
 use Inilim\ExpandingEnum\EnumCase;
 use Inilim\ExpandingEnum\EnumAbstract;
 
+/**
+ * @template TCase of object
+ * @template TClass of class-string
+ */
 class Enum extends EnumAbstract
 {
     /**
-     * @var class-string<\UnitEnum|\BackedEnum>
+     * @var class-string<TCase>
      */
     public readonly string $enum;
 
     /**
-     * @param class-string<\UnitEnum>|EnumAbstract|\UnitEnum $enum
+     * @param class-string<TCase>|EnumAbstract<TCase|TClass>|TCase $enum
      */
     function __construct($enum)
     {
@@ -25,7 +29,7 @@ class Enum extends EnumAbstract
     }
 
     /**
-     * @return class-string<\UnitEnum>
+     * @return class-string<TCase>
      */
     function getEnumClass(): string
     {
@@ -40,31 +44,49 @@ class Enum extends EnumAbstract
         return \_enum()->classEqual($this->enum, $class);
     }
 
+    /**
+     * @return TCase
+     */
     function fromValue(int|string $value, bool $case_insensitive = false): \BackedEnum
     {
         return \_enum()->fromValue($this->enum, $value, $case_insensitive);
     }
 
+    /**
+     * @return ?TCase
+     */
     function tryFromValue(int|string $value, bool $case_insensitive = false): ?\BackedEnum
     {
         return \_enum()->tryFromValue($this->enum, $value, $case_insensitive);
     }
 
+    /**
+     * @return EnumCase<TCase>
+     */
     function fromValueToCaseObj(int|string $value, bool $case_insensitive = false): EnumCase
     {
         return \_enum()->fromValueToCaseObj($this->enum, $value, $case_insensitive);
     }
 
+    /**
+     * @return ?EnumCase<TCase>
+     */
     function tryFromValueToCaseObj(int|string $value, bool $case_insensitive = false): ?EnumCase
     {
         return \_enum()->tryFromValueToCaseObj($this->enum, $value, $case_insensitive);
     }
 
+    /**
+     * @return EnumCase<TCase>
+     */
     function fromNameToCaseObj(string $name, bool $case_insensitive = false): EnumCase
     {
         return \_enum()->fromNameToCaseObj($this->enum, $name, $case_insensitive);
     }
 
+    /**
+     * @return ?EnumCase<TCase>
+     */
     function tryFromNameToCaseObj(string $name, bool $case_insensitive = false): ?EnumCase
     {
         return \_enum()->tryFromNameToCaseObj($this->enum, $name, $case_insensitive);
@@ -76,7 +98,7 @@ class Enum extends EnumAbstract
     }
 
     /**
-     * @return \UnitEnum[]
+     * @return TCase[]
      */
     function cases(): array
     {
@@ -154,11 +176,17 @@ class Enum extends EnumAbstract
         return \_enum()->existsValues($this->enum);
     }
 
+    /**
+     * @return TCase
+     */
     function fromName(string $name, bool $case_insensitive = false): \UnitEnum
     {
         return \_enum()->fromName($this->enum, $name, $case_insensitive);
     }
 
+    /**
+     * @return ?TCase
+     */
     function tryFromName(string $name, bool $case_insensitive = false): ?\UnitEnum
     {
         return \_enum()->tryFromName($this->enum, $name, $case_insensitive);
