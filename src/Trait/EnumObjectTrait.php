@@ -14,25 +14,16 @@ trait EnumObjectTrait
     /**
      * @return Enum<TEnum>
      */
-    static function getEnumObj()
+    static function getObj()
     {
-        return \_enum()->getEnumObj(self::class);
-    }
-
-    /**
-     * @return Enum<TEnum>
-     */
-    static function getCachedEnumObj()
-    {
-        static $o = null;
-        return $o ??= \_enum()->getEnumObj(self::class);
+        return \_enum()->getObj(self::class);
     }
 
     /**
      * @return EnumCase<TEnumCase>
      */
-    function getEnumCaseObj()
+    function getCaseObj()
     {
-        return \_enum()->getEnumCaseObj($this);
+        return \_enum()->getCaseObj($this);
     }
 }

@@ -15,15 +15,15 @@ trait EqualTrait
     }
 
     /**
-     * @param class-string $enum
+     * @param class-string<\UnitEnum> $enum
      */
     function classEqual(string $enum): bool
     {
         return \_enumCase()->classEqual($this, $enum);
     }
 
-    function enumEqual(\UnitEnum $enum): bool
+    function caseEqual(\UnitEnum $case): bool
     {
-        return \_enumCase()->enumEqual($this, $enum);
+        return \_enumCase()->caseEqual($this, $case);
     }
 }

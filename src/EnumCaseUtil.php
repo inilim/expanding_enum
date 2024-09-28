@@ -10,39 +10,39 @@ class EnumCaseUtil extends UtilAbstract
     // ExistsValueTrait
     // ------------------------------------------------------------------
 
-    function existsStrValue(\UnitEnum $enum): bool
+    function existsStrValue(\UnitEnum $case): bool
     {
-        if (!$this->existsValue($enum)) return false;
-        return \is_string($this->v($enum));
+        if (!$this->existsValue($case)) return false;
+        return \is_string($this->v($case));
     }
 
-    function existsIntValue(\UnitEnum $enum): bool
+    function existsIntValue(\UnitEnum $case): bool
     {
-        if (!$this->existsValue($enum)) return false;
-        return \is_int($this->v($enum));
+        if (!$this->existsValue($case)) return false;
+        return \is_int($this->v($case));
     }
 
-    function existsValue(\UnitEnum $enum): bool
+    function existsValue(\UnitEnum $case): bool
     {
-        return isset($enum->value);
+        return isset($case->value);
     }
 
     // ------------------------------------------------------------------
     // GetLowerNameTrait
     // ------------------------------------------------------------------
 
-    function getLowerName(\UnitEnum $enum): string
+    function getLowerName(\UnitEnum $case): string
     {
-        return $this->lower($this->n($enum));
+        return $this->lower($this->n($case));
     }
 
     // ------------------------------------------------------------------
     // GetLowerValueTrait
     // ------------------------------------------------------------------
 
-    function getLowerValue(\UnitEnum $enum): null|string|int
+    function getLowerValue(\UnitEnum $case): null|string|int
     {
-        $v = $this->v($enum);
+        $v = $this->v($case);
         if ($v === null || \is_int($v)) return $v;
         return $this->lower($v);
     }
@@ -51,18 +51,18 @@ class EnumCaseUtil extends UtilAbstract
     // GetUpperNameTrait
     // ------------------------------------------------------------------
 
-    function getUpperName(\UnitEnum $enum): string
+    function getUpperName(\UnitEnum $case): string
     {
-        return $this->upper($this->n($enum));
+        return $this->upper($this->n($case));
     }
 
     // ------------------------------------------------------------------
     // GetUpperValueTrait
     // ------------------------------------------------------------------
 
-    function getUpperValue(\UnitEnum $enum): null|string|int
+    function getUpperValue(\UnitEnum $case): null|string|int
     {
-        $v = $this->v($enum);
+        $v = $this->v($case);
         if ($v === null || \is_int($v)) return $v;
         return $this->upper($v);
     }
@@ -71,17 +71,17 @@ class EnumCaseUtil extends UtilAbstract
     // GetNameTrait
     // ------------------------------------------------------------------
 
-    function getName(\UnitEnum $enum): string
+    function getName(\UnitEnum $case): string
     {
-        return $enum->name;
+        return $case->name;
     }
 
     /**
      * short
      */
-    function n(\UnitEnum $enum): string
+    function n(\UnitEnum $case): string
     {
-        return $enum->name;
+        return $case->name;
     }
 
     // ------------------------------------------------------------------
@@ -91,22 +91,22 @@ class EnumCaseUtil extends UtilAbstract
     /**
      * "class-string::name"
      */
-    function toString(\UnitEnum $enum): string
+    function toString(\UnitEnum $case): string
     {
-        return $this->class($enum) . '::' . $this->n($enum);
+        return $this->class($case) . '::' . $this->n($case);
     }
 
-    function className(\UnitEnum $enum): string
+    function className(\UnitEnum $case): string
     {
-        return \basename($this->class($enum));
+        return \basename($this->class($case));
     }
 
     /**
      * @return class-string
      */
-    function class(\UnitEnum $enum): string
+    function class(\UnitEnum $case): string
     {
-        return $enum::class;
+        return $case::class;
     }
 
     // ------------------------------------------------------------------
@@ -116,47 +116,47 @@ class EnumCaseUtil extends UtilAbstract
     /**
      * property "->value"
      */
-    function getValue(\UnitEnum $enum): string|int|null
+    function getValue(\UnitEnum $case): string|int|null
     {
-        return $enum->value ?? null;
+        return $case->value ?? null;
     }
 
     /**
      * short
      * property "->value"
      */
-    function v(\UnitEnum $enum): string|int|null
+    function v(\UnitEnum $case): string|int|null
     {
-        return $enum->value ?? null;
+        return $case->value ?? null;
     }
 
     // ------------------------------------------------------------------
     // itTrait and EqualTrait
     // ------------------------------------------------------------------
 
-    function valueEqual(\UnitEnum $enum, string|int $value, bool $case_insensitive = false): bool
+    function valueEqual(\UnitEnum $case, string|int $value, bool $case_insensitive = false): bool
     {
-        $v = $this->v($enum);
+        $v = $this->v($case);
         if ($v === null) return false;
         if (\is_int($v)) return $v === \intval($value);
         return $this->uniform($v, $case_insensitive) === $this->uniform(\strval($value), $case_insensitive);
     }
 
-    function nameEqual(\UnitEnum $enum, string $name, bool $case_insensitive = false): bool
+    function nameEqual(\UnitEnum $case, string $name, bool $case_insensitive = false): bool
     {
-        return $this->uniform($this->n($enum), $case_insensitive) === $this->uniform($name, $case_insensitive);
+        return $this->uniform($this->n($case), $case_insensitive) === $this->uniform($name, $case_insensitive);
     }
 
     /**
      * @param class-string<\UnitEnum> $class
      */
-    function classEqual(\UnitEnum $enum, string $class): bool
+    function classEqual(\UnitEnum $case, string $class): bool
     {
-        return $this->class($enum) === $class;
+        return $this->class($case) === $class;
     }
 
-    function enumEqual(\UnitEnum $enum1, \UnitEnum $enum2): bool
+    function caseEqual(\UnitEnum $case1, \UnitEnum $case2): bool
     {
-        return $enum1 === $enum2;
+        return $case1 === $case2;
     }
 }

@@ -18,7 +18,7 @@ abstract class UtilAbstract
      * @param TCase|TClass $enum
      * @return Enum<TClass>
      */
-    function getEnumObj(\UnitEnum|string $enum): Enum
+    function getObj(\UnitEnum|string $enum): Enum
     {
         if (\is_string($enum)) {
             return new Enum($enum);
@@ -27,12 +27,12 @@ abstract class UtilAbstract
     }
 
     /**
-     * @param TCase $enum
+     * @param TCase $case
      * @return EnumCase<TCase>
      */
-    function getEnumCaseObj(\UnitEnum $enum): EnumCase
+    function getCaseObj(\UnitEnum $case): EnumCase
     {
-        return new EnumCase($enum);
+        return new EnumCase($case);
     }
 
     /**
@@ -43,7 +43,7 @@ abstract class UtilAbstract
     function acceptable($enum): bool
     {
         $type = \_other()->gettype($enum);
-        if ($type === 'string' && \_enum()->isEnum($enum)) {
+        if ($type === 'string' && \enum_exists($enum)) {
             return true;
         }
         // 

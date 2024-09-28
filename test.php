@@ -9,7 +9,7 @@ Dump::init();
 
 
 
-$a = ExampleEnum::getEnumObj();
+$a = ExampleEnum::getObj()->getRandomCase()->getCaseObj()->toString();
 
 
 // $b = $a->e();

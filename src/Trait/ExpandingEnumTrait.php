@@ -20,6 +20,7 @@ trait ExpandingEnumTrait
       \Inilim\ExpandingEnum\Trait\StringEnumTrait,
       \Inilim\ExpandingEnum\Trait\GetNameTrait,
       \Inilim\ExpandingEnum\Trait\ExistsValueTrait,
+      \Inilim\ExpandingEnum\Trait\GetRandomCaseTrait,
       \Inilim\ExpandingEnum\Trait\ExistsValuesTrait;
    // \Inilim\ExpandingEnum\Trait\EnumObjectTrait;
 }

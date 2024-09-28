@@ -13,7 +13,7 @@ trait StringEnumTrait
     }
 
     /**
-     * @deprecated
+     * @deprecated use toString
      */
     function string(): string
     {

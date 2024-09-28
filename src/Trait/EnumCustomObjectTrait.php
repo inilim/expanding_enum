@@ -11,25 +11,16 @@ trait EnumCustomObjectTrait
     /**
      * @return TEnum
      */
-    static function getEnumObj()
+    static function getObj()
     {
-        return new (self::CLASS_ENUM)(self::class);
-    }
-
-    /**
-     * @return TEnum
-     */
-    static function getCachedEnumObj()
-    {
-        static $o = null;
-        return $o ??= new (self::CLASS_ENUM)(self::class);
+        return new (self::CLASS_OBJ)(self::class);
     }
 
     /**
      * @return TEnumCase
      */
-    function getEnumCaseObj()
+    function getCaseObj()
     {
-        return new (self::CLASS_ENUM_CASE)($this);
+        return new (self::CLASS_CASE_OBJ)($this);
     }
 }

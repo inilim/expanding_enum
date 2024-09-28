@@ -8,6 +8,7 @@ use Inilim\ExpandingEnum\EnumAbstract;
 /**
  * @template TCase of object
  * @template TClass of class-string
+ * @psalm-immutable
  */
 class Enum extends EnumAbstract
 {
@@ -31,7 +32,7 @@ class Enum extends EnumAbstract
     /**
      * @return class-string<TCase>
      */
-    function getEnumClass(): string
+    function getClass(): string
     {
         return $this->enum;
     }
@@ -90,6 +91,22 @@ class Enum extends EnumAbstract
     function tryFromNameToCaseObj(string $name, bool $case_insensitive = false): ?EnumCase
     {
         return \_enum()->tryFromNameToCaseObj($this->enum, $name, $case_insensitive);
+    }
+
+    /**
+     * @return EnumCase<TCase>
+     */
+    function getRandomCaseObj(): EnumCase
+    {
+        return \_enum()->getRandomCaseObj($this->enum);
+    }
+
+    /**
+     * @return TCase
+     */
+    function getRandomCase(): \UnitEnum
+    {
+        return \_enum()->getRandomCase($this->enum);
     }
 
     function count(): int

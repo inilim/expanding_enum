@@ -4,5 +4,5 @@ namespace Inilim\ExpandingEnum;
 
 abstract class EnumAbstract
 {
-    abstract function getEnumClass(): string;
+    abstract function getClass(): string;
 }

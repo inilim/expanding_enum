@@ -7,12 +7,9 @@ use Inilim\ExpandingEnum\EnumCase;
 
 class EnumUtil extends UtilAbstract
 {
-    /**
-     * @param class-string $enum
-     */
-    function isEnum(string $enum, bool $autoload = true): bool
+    function isEnum($value): bool
     {
-        return \enum_exists($enum, $autoload);
+        return _other()->isEnum($value);
     }
 
     /**
@@ -115,6 +112,23 @@ class EnumUtil extends UtilAbstract
     // ------------------------------------------------------------------
     // other
     // ------------------------------------------------------------------
+
+    /**
+     * @param class-string<\UnitEnum> $enum
+     */
+    function getRandomCaseObj(string $enum): EnumCase
+    {
+        return new EnumCase($this->getRandomCase($enum));
+    }
+
+    /**
+     * @param class-string<\UnitEnum> $enum
+     */
+    function getRandomCase(string $enum): \UnitEnum
+    {
+        $cases = $this->cases($enum);
+        return $cases[\array_rand($cases)];
+    }
 
     /**
      * @param class-string<\UnitEnum> $enum
